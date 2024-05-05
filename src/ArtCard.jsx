@@ -9,6 +9,7 @@ const ArtCard = ({card}) => {
   let [image_url, setImageURL] = useState('');
 
   let searchImage = async (id) => {
+    
     let response = await fetch(`https://api.artic.edu/api/v1/artworks?ids=${id}&fields=image_id,artist_title,title`)
     let keys = await response.json();    
     let info = keys.data;
@@ -19,13 +20,24 @@ const ArtCard = ({card}) => {
     image_id_no = info[0].image_id;
     image_url = `${pre_iiif_url}/${image_id_no}/full/843,/0/default.jpg`;
 
+    try{
+      let test = await fetch(image_url);
+      if(!test.ok){
+        throw new Error("Something happened");
+      }
+    }
+    catch(error){
+      console.log(image_url, error.message);
+      image_url = null;
+    }
+    
     setArtist(artist);
     setArtName(artName);
     setPreURL(pre_iiif_url);
     setImageID(image_id_no);
     setImageURL(image_url);
     console.log(artName, image_url);
-  }
+    }
 
   useEffect(() => {
     searchImage(card.id);
