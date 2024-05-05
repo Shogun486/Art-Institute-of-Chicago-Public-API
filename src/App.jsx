@@ -1,14 +1,14 @@
 import {useState, useEffect} from 'react'
-import ArtCard from './ArtCard';
+import ArtCard from './ArtCard'
 import './index.css'
 
 const App = () => {
  
-  let [artworks, setArtworks] = useState([]);
+  let [artworks, setArtworks] = useState(new Set());
   let [search, setSearch] = useState('chicago');
 
   let searchArt = async (term) => {
-    let response = await fetch(`https://api.artic.edu/api/v1/artworks/search?q=${term}&limit=100`)
+    let response = await fetch(`https://api.artic.edu/api/v1/artworks/search?q=${term}&limit=18`)
     let data = await response.json();
     console.log(term, data.data);
     setArtworks(data.data);
@@ -41,10 +41,12 @@ const App = () => {
       </div>
       <br/>
 
+
       {/* Displaying Artwork */}
       {artworks.length > 0 ? (
         <div className = "container grid grid-flow-row-dense grid-cols-3 grid-rows-3">
-          {artworks.map((artwork) => (
+          { 
+            artworks.map((artwork) => (
             <ArtCard card ={artwork}/>
           ))}
         </div>
@@ -58,4 +60,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default App

@@ -1,5 +1,5 @@
-import React from 'react';
-import {useState, useEffect} from 'react';
+import React from 'react'
+import {useState, useEffect} from 'react'
 
 const ArtCard = ({card}) => {
   let [artist, setArtist] = useState('');
@@ -22,9 +22,8 @@ const ArtCard = ({card}) => {
 
     try{
       let test = await fetch(image_url);
-      if(!test.ok){
+      if(!test.ok)
         throw new Error("Something happened");
-      }
     }
     catch(error){
       console.log(image_url, error.message);
@@ -62,4 +61,4 @@ return (
 )
 }
 
-export default ArtCard;
+export default ArtCard
