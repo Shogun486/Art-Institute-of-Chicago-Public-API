@@ -4,18 +4,19 @@ import './index.css'
 
 const App = () => {
  
-  const [artworks, setArtworks] = useState([]);
-  const [search, setSearch] = useState('');
+  let [artworks, setArtworks] = useState([]);
+  let [search, setSearch] = useState('chicago');
 
-  const searchArt = async (term) => {
+  let searchArt = async (term) => {
     let response = await fetch(`https://api.artic.edu/api/v1/artworks/search?q=${term}`)
-    const data = await response.json();
+    let data = await response.json();
+    console.log(term, data.data);
     setArtworks(data.data);
   }
 
   useEffect(() => {
-    searchArt('cats');
-  }, []);
+    searchArt(search);
+  }, [search]);
 
   return (
     <div className="text-center items-center">
@@ -28,8 +29,8 @@ const App = () => {
       <div>
         <div>
           <form className="relative flex items-centers justify-center">
-            <input value={search}
-                   onChange={(e) => {setSearch(e.target.value); searchArt(search);}}  type="text" id="search" placeholder="Hagrid . . ." className="border-0 focus:ring-0 focus:outline-0 w-[60%] bg-slate-500 rounded-l-lg pl-4 text-sm text-slate-200"/>
+            <input value={search} onChange={(e) => setSearch(e.target.value)}
+                   type="text" id="search" placeholder="Search artwork . . ." className="border-0 focus:ring-0 focus:outline-0 w-[60%] bg-slate-500 rounded-l-lg pl-4 text-sm text-slate-200"/>
             <button className="ring-4  ring-slate-900 ring-offset-[0.55rem] shadow-transparent ring-offset-red hover:ring-offset-white  hover:bg-white bg-white rounded-[50%] active:scale-95 cursor-pointer">
               <h2 className="rounded-full border-4 border-slate-800 w-16 h-16  text-red-900 text-2xl text-center justify-center flex items-center font-semibold hover:border-slate-600 hover:text-black ">
                 GO
