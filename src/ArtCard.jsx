@@ -44,7 +44,7 @@ const ArtCard = ({card}) => {
   }, [card]);
 
 return (
-  <div className="self-center relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
+  <div className="m-6 self-center relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
     <div className="relative mx-4 mt-4  text-gray-700 bg-white shadow-lg bg-clip-border rounded-xl h-70">
       <img className="place-content-center object-contain" 
            src={image_url !== null ? image_url : 'https://via.placeholder.com/400'} />

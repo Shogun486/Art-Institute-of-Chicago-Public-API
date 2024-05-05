@@ -8,7 +8,7 @@ const App = () => {
   let [search, setSearch] = useState('chicago');
 
   let searchArt = async (term) => {
-    let response = await fetch(`https://api.artic.edu/api/v1/artworks/search?q=${term}`)
+    let response = await fetch(`https://api.artic.edu/api/v1/artworks/search?q=${term}&limit=100`)
     let data = await response.json();
     console.log(term, data.data);
     setArtworks(data.data);
@@ -19,7 +19,7 @@ const App = () => {
   }, [search]);
 
   return (
-    <div className="text-center items-center">
+    <div className="px-10 text-center items-center">
       {/* Title */}
       <h1 className="text-center leading-relaxed bg-gradient-to-r from-red-950 via-orange-800 to-indigo-800 inline-block text-transparent bg-clip-text text-6xl">
         Art Institute of Chicago API
