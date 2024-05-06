@@ -28,30 +28,23 @@ const App = () => {
       {/* Search Bar */}
       <div>
         <div>
-          <form className="relative flex items-centers justify-center">
+          <form className="mt-20 mb-5 relative flex items-centers justify-center">
             <input value={search} onChange={(e) => setSearch(e.target.value)}
-                   type="text" id="search" placeholder="Search artwork . . ." className="border-0 focus:ring-0 focus:outline-0 w-[60%] bg-slate-500 rounded-l-lg pl-4 text-sm text-slate-200"/>
-            <button className="ring-4  ring-slate-900 ring-offset-[0.55rem] shadow-transparent ring-offset-red hover:ring-offset-white  hover:bg-white bg-white rounded-[50%] active:scale-95 cursor-pointer">
-              <h2 className="rounded-full border-4 border-slate-800 w-16 h-16  text-red-900 text-2xl text-center justify-center flex items-center font-semibold hover:border-slate-600 hover:text-black ">
-                GO
-              </h2>
-            </button>   
+                   type="text" id="search" placeholder="Search artwork . . ." className="placeholder:text-slate-100 h-20 border-4 focus:ring-0 focus:outline-0 w-[56%] bg-transparent rounded pl-4 text-4xl text-slate-100"/>
           </form>   
         </div>
       </div>
-      <br/>
-
 
       {/* Displaying Artwork */}
       {artworks.length > 0 ? (
-        <div className = "container grid grid-flow-row-dense grid-cols-3 grid-rows-3">
+        <div className = "container grid grid-flow-row grid-cols-3 grid-rows-3">
           { 
             artworks.map((artwork) => (
             <ArtCard card ={artwork}/>
           ))}
         </div>
         ):(
-        <div className="empty">
+        <div>
           <h2>No artworks found</h2>
         </div>
         )

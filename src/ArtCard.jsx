@@ -43,9 +43,9 @@ const ArtCard = ({card}) => {
   }, [card]);
 
 return (
-  <div className="m-6 self-center relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
-    <div className="relative mx-4 mt-4  text-gray-700 bg-white shadow-lg bg-clip-border rounded-xl h-70">
-      <img className="place-content-center object-contain" 
+  <div className="ml-6 mr-6 mt-1 mb-1 self-center flex flex-col text-gray-700 bg-white shadow-inner bg-clip-border rounded-xl w-96">
+    <div className="relative mx-4 mt-4  text-gray-700 bg-white shadow-2xl bg-clip-border rounded-xl h-70">
+      <img className="place-content-center object-contain relative" 
            src={image_url !== null ? image_url : 'https://via.placeholder.com/400'} />
     </div>
     <div className="p-6 text-center">
