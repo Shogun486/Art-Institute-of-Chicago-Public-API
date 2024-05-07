@@ -1,4 +1,4 @@
-Website leveraging the _Art Institute of Chicago's Public API_
+Website leveraging the _Art Institute of Chicago's API_
 ==========
 
 This website is designed to replicate a visitor's experience at the Art Institute of Chicago (AIC).
