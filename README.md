@@ -2,7 +2,7 @@ Website leveraging the _Art Institute of Chicago_'s API
 ==========
 
 This website is designed to replicate a visitor's experience at the Art Institute of Chicago (AIC).
-When walking inside the AIC, different artworks of different sizes can be found, therefore you'll
+When walking inside of the AIC, different artworks of different sizes can be found, therefore you'll
 find that all images on this website are of different sizes, too (arranged like a gallery). You can find images based on what
 you're looking for . . . do you want to see Picasso's works? Well, simply search 'Picasso' in the 
 search bar, and you'll find all artifacts where the API's metadata has any mention of him. The frontend
