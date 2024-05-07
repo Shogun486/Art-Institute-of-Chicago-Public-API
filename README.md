@@ -15,7 +15,7 @@ Click [here] to see a demo of this app.
 ## API Details
 The [AIC's REST API] holds the museum's public data. The image files you see are not from this API, but
 instead must be acquired through a different URL following [IIIF Image API] standards. Within [ArtCard.jsx], 
-you'll find that image requests are made with the URL suffix '/full/843,/0/default.jpg' because IIIF supports 
+you'll find that image requests are made with the URL suffix `/full/843,/0/default.jpg` because IIIF supports 
 multiple image display options, but this particular display option is what's used by AIC's website. Therefore, 
 images will load much faster on your end if you stick with this option.
 
