@@ -27,6 +27,6 @@ the [React] and [Tailwind] docs.
 [React]: https://react.dev/learn/installation
 [Tailwind]: https://tailwindcss.com/docs/installation
 [here]: https://drive.google.com/file/d/1A5xGm_-8rjULD2RZ3O8BUB6D6p1UUQA_/view
-[AIC's REST API]: https://api.artic.edu/docs/#scraping-data
+[AIC's REST API]: https://api.artic.edu/docs/#introduction
 [IIIF Image API]: https://iiif.io/api/image/2.0/
 [ArtCard.jsx]: https://github.com/Shogun486/Art-Institute-of-Chicago-Public-API/blob/main/src/ArtCard.jsx
