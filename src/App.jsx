@@ -8,10 +8,10 @@ const App = () => {
   let [search, setSearch] = useState('chicago');
 
   let searchArt = async (term) => {
-    let response = await fetch(`https://api.artic.edu/api/v1/artworks/search?q=${term}&limit=18`)
+    let response = await fetch(`https://api.artic.edu/api/v1/artworks/search?q=${term}&limit=24`)
     let data = await response.json();
     console.log(term, data.data);
-    setArtworks(data.data);
+    setArtworks(Array.from(new Set(data.data)));
   }
 
   useEffect(() => {
@@ -20,11 +20,12 @@ const App = () => {
 
   return (
     <div className="px-10 text-center items-center">
-      {/* Title */}
-      <h1 className="text-center leading-relaxed bg-gradient-to-r from-red-950 via-orange-800 to-indigo-800 inline-block text-transparent bg-clip-text text-6xl">
-        Art Institute of Chicago API
-      </h1>
 
+      {/* Title */}
+      <h1 id="web_title" className="text-center leading-relaxed bg-gradient-to-r from-red-950 via-orange-800 to-indigo-800 inline-block text-transparent bg-clip-text text-6xl">
+        Art Institute of Chicago API 
+      </h1>
+    
       {/* Search Bar */}
       <div>
         <div>
@@ -35,9 +36,10 @@ const App = () => {
         </div>
       </div>
 
+
       {/* Displaying Artwork */}
       {artworks.length > 0 ? (
-        <div className = "container grid grid-flow-row grid-cols-3 grid-rows-3">
+        <div className = "container grid grid-flow-row grid-cols-3 grid-rows-3">                                                                                  
           { 
             artworks.map((artwork) => (
             <ArtCard card ={artwork}/>
@@ -50,6 +52,7 @@ const App = () => {
         )
       }
     </div>
+
   )
 }
 

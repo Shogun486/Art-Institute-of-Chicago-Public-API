@@ -9,7 +9,6 @@ const ArtCard = ({card}) => {
   let [image_url, setImageURL] = useState('');
 
   let searchImage = async (id) => {
-    
     let response = await fetch(`https://api.artic.edu/api/v1/artworks?ids=${id}&fields=image_id,artist_title,title`)
     let keys = await response.json();    
     let info = keys.data;
@@ -23,7 +22,7 @@ const ArtCard = ({card}) => {
     try{
       let test = await fetch(image_url);
       if(!test.ok)
-        throw new Error("Something happened");
+        throw new Error("Check for error");
     }
     catch(error){
       console.log(image_url, error.message);
@@ -36,14 +35,14 @@ const ArtCard = ({card}) => {
     setImageID(image_id_no);
     setImageURL(image_url);
     console.log(artName, image_url);
-    }
+  }
 
   useEffect(() => {
     searchImage(card.id);
   }, [card]);
 
 return (
-  <div className="ml-6 mr-6 mt-1 mb-1 self-center flex flex-col text-gray-700 bg-white shadow-inner bg-clip-border rounded-xl w-96">
+  <div className="ml-6 mr-6 mt-1 mb-1 self-center flex flex-col text-gray-700 bg-white shadow-inner bg-clip-border rounded-xl w-96" >
     <div className="relative mx-4 mt-4  text-gray-700 bg-white shadow-2xl bg-clip-border rounded-xl h-70">
       <img className="place-content-center object-contain relative" 
            src={image_url !== null ? image_url : 'https://via.placeholder.com/400'} />
